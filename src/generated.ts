@@ -85,6 +85,20 @@ export const arbOwnerABI = [
   {
     stateMutability: 'nonpayable',
     type: 'function',
+    inputs: [{ name: 'level', internalType: 'uint64', type: 'uint64' }],
+    name: 'setBrotliCompressionLevel',
+    outputs: [],
+  },
+  {
+    stateMutability: 'nonpayable',
+    type: 'function',
+    inputs: [{ name: 'chainConfig', internalType: 'string', type: 'string' }],
+    name: 'setChainConfig',
+    outputs: [],
+  },
+  {
+    stateMutability: 'nonpayable',
+    type: 'function',
     inputs: [{ name: 'newInfraFeeAccount', internalType: 'address', type: 'address' }],
     name: 'setInfraFeeAccount',
     outputs: [],
@@ -210,6 +224,20 @@ export const arbOwnerConfig = { address: arbOwnerAddress, abi: arbOwnerABI } as 
  */
 export const arbOwnerPublicABI = [
   {
+    stateMutability: 'nonpayable',
+    type: 'function',
+    inputs: [{ name: 'newOwner', internalType: 'address', type: 'address' }],
+    name: 'addChainOwner',
+    outputs: [],
+  },
+  {
+    stateMutability: 'nonpayable',
+    type: 'function',
+    inputs: [{ name: 'manager', internalType: 'address', type: 'address' }],
+    name: 'addWasmCacheManager',
+    outputs: [],
+  },
+  {
     stateMutability: 'view',
     type: 'function',
     inputs: [],
@@ -236,6 +264,246 @@ export const arbOwnerPublicABI = [
     inputs: [{ name: 'addr', internalType: 'address', type: 'address' }],
     name: 'isChainOwner',
     outputs: [{ name: '', internalType: 'bool', type: 'bool' }],
+  },
+  {
+    stateMutability: 'nonpayable',
+    type: 'function',
+    inputs: [{ name: 'maxWeiToRelease', internalType: 'uint256', type: 'uint256' }],
+    name: 'releaseL1PricerSurplusFunds',
+    outputs: [{ name: '', internalType: 'uint256', type: 'uint256' }],
+  },
+  {
+    stateMutability: 'nonpayable',
+    type: 'function',
+    inputs: [{ name: 'ownerToRemove', internalType: 'address', type: 'address' }],
+    name: 'removeChainOwner',
+    outputs: [],
+  },
+  {
+    stateMutability: 'nonpayable',
+    type: 'function',
+    inputs: [{ name: 'manager', internalType: 'address', type: 'address' }],
+    name: 'removeWasmCacheManager',
+    outputs: [],
+  },
+  {
+    stateMutability: 'nonpayable',
+    type: 'function',
+    inputs: [
+      { name: 'newVersion', internalType: 'uint64', type: 'uint64' },
+      { name: 'timestamp', internalType: 'uint64', type: 'uint64' },
+    ],
+    name: 'scheduleArbOSUpgrade',
+    outputs: [],
+  },
+  {
+    stateMutability: 'nonpayable',
+    type: 'function',
+    inputs: [{ name: 'cap', internalType: 'uint64', type: 'uint64' }],
+    name: 'setAmortizedCostCapBips',
+    outputs: [],
+  },
+  {
+    stateMutability: 'nonpayable',
+    type: 'function',
+    inputs: [{ name: 'level', internalType: 'uint64', type: 'uint64' }],
+    name: 'setBrotliCompressionLevel',
+    outputs: [],
+  },
+  {
+    stateMutability: 'nonpayable',
+    type: 'function',
+    inputs: [{ name: 'chainConfig', internalType: 'string', type: 'string' }],
+    name: 'setChainConfig',
+    outputs: [],
+  },
+  {
+    stateMutability: 'nonpayable',
+    type: 'function',
+    inputs: [{ name: 'newInfraFeeAccount', internalType: 'address', type: 'address' }],
+    name: 'setInfraFeeAccount',
+    outputs: [],
+  },
+  {
+    stateMutability: 'nonpayable',
+    type: 'function',
+    inputs: [{ name: 'price', internalType: 'uint32', type: 'uint32' }],
+    name: 'setInkPrice',
+    outputs: [],
+  },
+  {
+    stateMutability: 'nonpayable',
+    type: 'function',
+    inputs: [{ name: 'inertia', internalType: 'uint64', type: 'uint64' }],
+    name: 'setL1BaseFeeEstimateInertia',
+    outputs: [],
+  },
+  {
+    stateMutability: 'nonpayable',
+    type: 'function',
+    inputs: [{ name: 'pricePerUnit', internalType: 'uint256', type: 'uint256' }],
+    name: 'setL1PricePerUnit',
+    outputs: [],
+  },
+  {
+    stateMutability: 'nonpayable',
+    type: 'function',
+    inputs: [{ name: 'equilibrationUnits', internalType: 'uint256', type: 'uint256' }],
+    name: 'setL1PricingEquilibrationUnits',
+    outputs: [],
+  },
+  {
+    stateMutability: 'nonpayable',
+    type: 'function',
+    inputs: [{ name: 'inertia', internalType: 'uint64', type: 'uint64' }],
+    name: 'setL1PricingInertia',
+    outputs: [],
+  },
+  {
+    stateMutability: 'nonpayable',
+    type: 'function',
+    inputs: [{ name: 'weiPerUnit', internalType: 'uint64', type: 'uint64' }],
+    name: 'setL1PricingRewardRate',
+    outputs: [],
+  },
+  {
+    stateMutability: 'nonpayable',
+    type: 'function',
+    inputs: [{ name: 'recipient', internalType: 'address', type: 'address' }],
+    name: 'setL1PricingRewardRecipient',
+    outputs: [],
+  },
+  {
+    stateMutability: 'nonpayable',
+    type: 'function',
+    inputs: [{ name: 'priceInWei', internalType: 'uint256', type: 'uint256' }],
+    name: 'setL2BaseFee',
+    outputs: [],
+  },
+  {
+    stateMutability: 'nonpayable',
+    type: 'function',
+    inputs: [{ name: 'sec', internalType: 'uint64', type: 'uint64' }],
+    name: 'setL2GasBacklogTolerance',
+    outputs: [],
+  },
+  {
+    stateMutability: 'nonpayable',
+    type: 'function',
+    inputs: [{ name: 'sec', internalType: 'uint64', type: 'uint64' }],
+    name: 'setL2GasPricingInertia',
+    outputs: [],
+  },
+  {
+    stateMutability: 'nonpayable',
+    type: 'function',
+    inputs: [{ name: 'limit', internalType: 'uint64', type: 'uint64' }],
+    name: 'setMaxTxGasLimit',
+    outputs: [],
+  },
+  {
+    stateMutability: 'nonpayable',
+    type: 'function',
+    inputs: [{ name: 'priceInWei', internalType: 'uint256', type: 'uint256' }],
+    name: 'setMinimumL2BaseFee',
+    outputs: [],
+  },
+  {
+    stateMutability: 'nonpayable',
+    type: 'function',
+    inputs: [{ name: 'newNetworkFeeAccount', internalType: 'address', type: 'address' }],
+    name: 'setNetworkFeeAccount',
+    outputs: [],
+  },
+  {
+    stateMutability: 'nonpayable',
+    type: 'function',
+    inputs: [{ name: 'cost', internalType: 'int64', type: 'int64' }],
+    name: 'setPerBatchGasCharge',
+    outputs: [],
+  },
+  {
+    stateMutability: 'nonpayable',
+    type: 'function',
+    inputs: [{ name: 'limit', internalType: 'uint64', type: 'uint64' }],
+    name: 'setSpeedLimit',
+    outputs: [],
+  },
+  {
+    stateMutability: 'nonpayable',
+    type: 'function',
+    inputs: [{ name: 'count', internalType: 'uint16', type: 'uint16' }],
+    name: 'setWasmBlockCacheSize',
+    outputs: [],
+  },
+  {
+    stateMutability: 'nonpayable',
+    type: 'function',
+    inputs: [{ name: '_days', internalType: 'uint16', type: 'uint16' }],
+    name: 'setWasmExpiryDays',
+    outputs: [],
+  },
+  {
+    stateMutability: 'nonpayable',
+    type: 'function',
+    inputs: [{ name: 'pages', internalType: 'uint16', type: 'uint16' }],
+    name: 'setWasmFreePages',
+    outputs: [],
+  },
+  {
+    stateMutability: 'nonpayable',
+    type: 'function',
+    inputs: [{ name: 'percent', internalType: 'uint64', type: 'uint64' }],
+    name: 'setWasmInitCostScalar',
+    outputs: [],
+  },
+  {
+    stateMutability: 'nonpayable',
+    type: 'function',
+    inputs: [{ name: '_days', internalType: 'uint16', type: 'uint16' }],
+    name: 'setWasmKeepaliveDays',
+    outputs: [],
+  },
+  {
+    stateMutability: 'nonpayable',
+    type: 'function',
+    inputs: [{ name: 'depth', internalType: 'uint32', type: 'uint32' }],
+    name: 'setWasmMaxStackDepth',
+    outputs: [],
+  },
+  {
+    stateMutability: 'nonpayable',
+    type: 'function',
+    inputs: [
+      { name: 'gas', internalType: 'uint8', type: 'uint8' },
+      { name: 'cached', internalType: 'uint16', type: 'uint16' },
+    ],
+    name: 'setWasmMinInitGas',
+    outputs: [],
+  },
+  {
+    stateMutability: 'nonpayable',
+    type: 'function',
+    inputs: [{ name: 'gas', internalType: 'uint16', type: 'uint16' }],
+    name: 'setWasmPageGas',
+    outputs: [],
+  },
+  {
+    stateMutability: 'nonpayable',
+    type: 'function',
+    inputs: [{ name: 'limit', internalType: 'uint16', type: 'uint16' }],
+    name: 'setWasmPageLimit',
+    outputs: [],
+  },
+  {
+    type: 'event',
+    anonymous: false,
+    inputs: [
+      { name: 'method', internalType: 'bytes4', type: 'bytes4', indexed: true },
+      { name: 'owner', internalType: 'address', type: 'address', indexed: true },
+      { name: 'data', internalType: 'bytes', type: 'bytes', indexed: false },
+    ],
+    name: 'OwnerActs',
   },
 ] as const;
 
@@ -384,7 +652,7 @@ export const erc20ABI = [
  * -
  * - [__View Contract on Arbitrum One Arbiscan__](https://arbiscan.io/address/0x9CAd81628aB7D8e239F1A5B497313341578c5F71)
  * - [__View Contract on Arbitrum Nova Arbiscan__](https://nova.arbiscan.io/address/0x9CAd81628aB7D8e239F1A5B497313341578c5F71)
- * - [__View Contract on Arbitrum Sepolia Blockscout__](https://sepolia-explorer.arbitrum.io/address/0x06E341073b2749e0Bb9912461351f716DeCDa9b0)
+ * - [__View Contract on Arbitrum Sepolia Blockscout__](https://sepolia-explorer.arbitrum.io/address/0xE917553b67f630C3982236B6A1d7844B1021B909)
  * - [__View Contract on Sepolia Etherscan__](https://sepolia.etherscan.io/address/0xfbd0b034e6305788007f6e0123cc5eae701a5751)
  */
 export const rollupCreatorABI = [
@@ -411,6 +679,7 @@ export const rollupCreatorABI = [
       { name: 'adminProxy', internalType: 'address', type: 'address', indexed: false },
       { name: 'sequencerInbox', internalType: 'address', type: 'address', indexed: false },
       { name: 'bridge', internalType: 'address', type: 'address', indexed: false },
+      { name: 'dabridge', internalType: 'address', type: 'address', indexed: false },
       { name: 'upgradeExecutor', internalType: 'address', type: 'address', indexed: false },
       { name: 'validatorUtils', internalType: 'address', type: 'address', indexed: false },
       { name: 'validatorWalletCreator', internalType: 'address', type: 'address', indexed: false },
@@ -469,12 +738,13 @@ export const rollupCreatorABI = [
               },
             ],
           },
-          { name: 'batchPoster', internalType: 'address', type: 'address' },
           { name: 'validators', internalType: 'address[]', type: 'address[]' },
           { name: 'maxDataSize', internalType: 'uint256', type: 'uint256' },
           { name: 'nativeToken', internalType: 'address', type: 'address' },
           { name: 'deployFactoriesToL2', internalType: 'bool', type: 'bool' },
           { name: 'maxFeePerGasForRetryables', internalType: 'uint256', type: 'uint256' },
+          { name: 'batchPosters', internalType: 'address[]', type: 'address[]' },
+          { name: 'batchPosterManager', internalType: 'address', type: 'address' },
         ],
       },
     ],
@@ -580,7 +850,7 @@ export const rollupCreatorABI = [
  * -
  * - [__View Contract on Arbitrum One Arbiscan__](https://arbiscan.io/address/0x9CAd81628aB7D8e239F1A5B497313341578c5F71)
  * - [__View Contract on Arbitrum Nova Arbiscan__](https://nova.arbiscan.io/address/0x9CAd81628aB7D8e239F1A5B497313341578c5F71)
- * - [__View Contract on Arbitrum Sepolia Blockscout__](https://sepolia-explorer.arbitrum.io/address/0x06E341073b2749e0Bb9912461351f716DeCDa9b0)
+ * - [__View Contract on Arbitrum Sepolia Blockscout__](https://sepolia-explorer.arbitrum.io/address/0xE917553b67f630C3982236B6A1d7844B1021B909)
  * - [__View Contract on Sepolia Etherscan__](https://sepolia.etherscan.io/address/0xfbd0b034e6305788007f6e0123cc5eae701a5751)
  */
 export const rollupCreatorAddress = {
@@ -590,7 +860,7 @@ export const rollupCreatorAddress = {
   42170: '0x9CAd81628aB7D8e239F1A5B497313341578c5F71',
   333333: '0x0000000000000000000000000000000000000000',
   412346: '0x3BaF9f08bAD68869eEdEa90F2Cc546Bd80F1A651',
-  421614: '0x06E341073b2749e0Bb9912461351f716DeCDa9b0',
+  421614: '0xE917553b67f630C3982236B6A1d7844B1021B909',
   11155111: '0xfBD0B034e6305788007f6e0123cc5EaE701a5751',
 } as const;
 
@@ -599,7 +869,7 @@ export const rollupCreatorAddress = {
  * -
  * - [__View Contract on Arbitrum One Arbiscan__](https://arbiscan.io/address/0x9CAd81628aB7D8e239F1A5B497313341578c5F71)
  * - [__View Contract on Arbitrum Nova Arbiscan__](https://nova.arbiscan.io/address/0x9CAd81628aB7D8e239F1A5B497313341578c5F71)
- * - [__View Contract on Arbitrum Sepolia Blockscout__](https://sepolia-explorer.arbitrum.io/address/0x06E341073b2749e0Bb9912461351f716DeCDa9b0)
+ * - [__View Contract on Arbitrum Sepolia Blockscout__](https://sepolia-explorer.arbitrum.io/address/0xE917553b67f630C3982236B6A1d7844B1021B909)
  * - [__View Contract on Sepolia Etherscan__](https://sepolia.etherscan.io/address/0xfbd0b034e6305788007f6e0123cc5eae701a5751)
  */
 export const rollupCreatorConfig = {

@@ -64,7 +64,7 @@ const contracts: ContractConfig[] = [
       [arbitrumNova.id]: '0x9CAd81628aB7D8e239F1A5B497313341578c5F71',
       // testnet
       [sepolia.id]: '0xfbd0b034e6305788007f6e0123cc5eae701a5751',
-      [arbitrumSepolia.id]: '0x06E341073b2749e0Bb9912461351f716DeCDa9b0',
+      [arbitrumSepolia.id]: '0xE917553b67f630C3982236B6A1d7844B1021B909',
       // local nitro-testnode (on "release" branch with --tokenbridge --l3node --l3-token-bridge flags)
       [nitroTestnodeL1.id]: '0x596eabe0291d4cdafac7ef53d16c92bf6922b5e0',
       [nitroTestnodeL2.id]: '0x3BaF9f08bAD68869eEdEa90F2Cc546Bd80F1A651',
