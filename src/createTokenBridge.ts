@@ -34,6 +34,7 @@ import { isCustomFeeTokenAddress } from './utils/isCustomFeeTokenAddress';
 import { WithTokenBridgeCreatorAddressOverride } from './types/createTokenBridgeTypes';
 import { TransactionRequestGasOverrides } from './utils/gasOverrides';
 import { getBlockExplorerUrl } from './utils/getBlockExplorerUrl';
+import { isTokenBridgeDeployed } from './isTokenBridgeDeployed';
 
 export type CreateTokenBridgeParams<
   TParentChain extends Chain | undefined,
@@ -171,6 +172,17 @@ export async function createTokenBridge<
 }: CreateTokenBridgeParams<TParentChain, TOrbitChain>): Promise<
   CreateTokenBridgeResults<TParentChain, TOrbitChain>
 > {
+  const isTokenBridgeAlreadyDeployed = await isTokenBridgeDeployed({
+    parentChainPublicClient,
+    orbitChainPublicClient,
+    rollup: rollupAddress,
+    tokenBridgeCreatorAddressOverride,
+  });
+
+  if (isTokenBridgeAlreadyDeployed) {
+    throw new Error(`Token bridge contracts for Rollup ${rollupAddress} are already deployed`);
+  }
+
   const isCustomFeeTokenBridge = isCustomFeeTokenAddress(nativeTokenAddress);
   if (isCustomFeeTokenBridge) {
     // set the custom fee token
