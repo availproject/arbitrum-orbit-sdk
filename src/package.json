@@ -1,7 +1,7 @@
 {
-  "name": "@arbitrum/orbit-sdk",
+  "name": "@avail-project/avail-orbit-sdk",
   "description": "TypeScript SDK for building Arbitrum Orbit chains",
-  "version": "0.19.0",
+  "version": "1.0.0-upstream-0.19.0",
   "main": "./dist/index.js",
   "files": [
     "./dist"
@@ -44,7 +44,7 @@
       ]
     }
   },
-  "repository": "git+https://github.com/OffchainLabs/arbitrum-orbit-sdk.git",
+  "repository": "git+https://github.com/availproject/arbitrum-orbit-sdk.git",
   "author": "Offchain Labs, Inc.",
   "license": "Apache-2.0",
   "peerDependencies": {
