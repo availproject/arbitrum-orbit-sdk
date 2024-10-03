@@ -10,6 +10,7 @@ export type CoreContracts = {
   adminProxy: Address;
   sequencerInbox: Address;
   bridge: Address;
+  dabridge: Address;
   upgradeExecutor: Address;
   validatorUtils: Address;
   validatorWalletCreator: Address;
