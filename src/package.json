@@ -1,7 +1,7 @@
 {
   "name": "@avail-project/avail-orbit-sdk",
   "description": "TypeScript SDK for building Arbitrum Orbit chains",
-  "version": "1.1.0-upstream-0.20.1",
+  "version": "1.3.0-upstream-0.20.1",
   "main": "./dist/index.js",
   "files": [
     "./dist"

@@ -119,6 +119,16 @@ export function prepareNodeConfig({
         'no-sequencer-coordinator': true,
         'disable-blob-reader': getDisableBlobReader(parentChainId),
       },
+      'avail': {
+        'enable': true,
+        'avail-api-url': 'wss://turing-rpc.avail.so/ws',
+        'seed': "",
+        'app-id': 1,
+        'timeout': "100s",
+        'bridge-api-base-url': 'https://turing-bridge-api.fra.avail.so/',
+        'arbsepolia-rpc': 'wss://sepolia-rollup.arbitrum.io/rpc',
+        'vectorx': '0xA712dfec48AF3a78419A8FF90fE8f97Ae74680F0',
+      }
     },
     'execution': {
       'forwarding-target': '',
