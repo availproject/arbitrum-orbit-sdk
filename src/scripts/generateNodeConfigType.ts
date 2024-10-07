@@ -5,7 +5,7 @@ import { Project, WriterFunction, Writers } from 'ts-morph';
 const { objectType } = Writers;
 
 function getNitroNodeImageTag(): string {
-  const defaultNitroNodeTag = 'v2.3.3-6a1c1a7';
+  const defaultNitroNodeTag = ':latest';
   const argv = process.argv.slice(2);
 
   if (argv.length < 2 || argv[0] !== '--nitro-node-tag') {
@@ -19,7 +19,7 @@ function getNitroNodeImageTag(): string {
 }
 
 const nitroNodeTag = getNitroNodeImageTag();
-const nitroNodeImage = `offchainlabs/nitro-node:${nitroNodeTag}`;
+const nitroNodeImage = `avail-nitro-node-dev${nitroNodeTag}`;
 const nitroNodeHelpOutputFile = `${nitroNodeImage.replace('/', '-')}-help.txt`;
 
 console.log(`Using image "${nitroNodeImage}".`);
@@ -97,8 +97,10 @@ function parseCliOptions(fileContents: string): CliOption[] {
     const docsStart = name.length + 1 + type.length;
     const docs = line.slice(docsStart).trim();
 
-    if (typeof sanitizedType === 'undefined') {
-      throw new Error(`Unknown type: ${type}`);
+    if (!sanitizedType) {
+      //throw new Error(`Unknown type: ${type}`);
+      console.warn(`Skipping undefined type: ${type}`);
+      return null;
     }
 
     return {
@@ -109,7 +111,7 @@ function parseCliOptions(fileContents: string): CliOption[] {
       // copy the rest of the line as docs
       docs: [docs],
     };
-  });
+  }).filter((cliOption): cliOption is CliOption => cliOption !== null);
 }
 
 type CliOptionNestedObject = {
