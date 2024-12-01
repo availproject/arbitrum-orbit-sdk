@@ -8,6 +8,7 @@ import { CoreContracts } from './types/CoreContracts';
 import { ParentChainId, validateParentChain } from './types/ParentChain';
 import { getParentChainLayer } from './utils';
 import { parentChainIsArbitrum } from './parentChainIsArbitrum';
+import { FallbackS3Config } from './types/FallbackS3Config';
 
 // this is different from `sanitizePrivateKey` from utils, as this removes the 0x prefix
 function sanitizePrivateKey(privateKey: string) {
@@ -30,6 +31,9 @@ export type PrepareNodeConfigParams = {
   coreContracts: CoreContracts;
   batchPosterPrivateKey: string;
   validatorPrivateKey: string;
+  availAddressSeed: string;
+  availAppId: number,
+  fallbackS3Config: FallbackS3Config
   parentChainId: ParentChainId;
   parentChainRpcUrl: string;
   parentChainBeaconRpcUrl?: string;
@@ -50,6 +54,9 @@ export function prepareNodeConfig({
   coreContracts,
   batchPosterPrivateKey,
   validatorPrivateKey,
+  availAddressSeed,
+  availAppId,
+  fallbackS3Config,
   parentChainId,
   parentChainRpcUrl,
   parentChainBeaconRpcUrl,
@@ -59,6 +66,8 @@ export function prepareNodeConfig({
   if (getParentChainLayer(parentChainId) === 1 && !parentChainBeaconRpcUrl) {
     throw new Error(`"parentChainBeaconRpcUrl" is required for L2 Orbit chains.`);
   }
+
+
 
   const config: NodeConfig = {
     'chain': {
@@ -121,13 +130,18 @@ export function prepareNodeConfig({
       },
       'avail': {
         'enable': true,
-        'avail-api-url': 'wss://turing-rpc.avail.so/ws',
-        'seed': "",
-        'app-id': 1,
-        'timeout': "100s",
-        'bridge-api-base-url': 'https://turing-bridge-api.fra.avail.so/',
-        'arbsepolia-rpc': 'wss://sepolia-rollup.arbitrum.io/rpc',
-        'vectorx': '0xA712dfec48AF3a78419A8FF90fE8f97Ae74680F0',
+        "seed": availAddressSeed,
+        "avail-api-url": "wss://turing-rpc.avail.so/ws",
+        "app-id": availAppId,
+        "timeout": "100s",
+        "fallback-s3-service-config": {
+          "enable": false,
+        },
+        "avail-bridge-config": {
+          "avail-bridge-api-url": "https://turing-bridge-api.fra.avail.so/",
+          "vectorx-address": "0xA712dfec48AF3a78419A8FF90fE8f97Ae74680F0",
+          "arbsepolia-rpc": "wss://sepolia-rollup.arbitrum.io/rpc"
+        }
       }
     },
     'execution': {
@@ -165,6 +179,18 @@ export function prepareNodeConfig({
         'assumed-honest': 1,
       },
     };
+  }
+
+  if (fallbackS3Config.enable) {
+    config.node!.avail!['fallback-s3-service-config'] = {
+      enable: true,
+      "access-key": fallbackS3Config.accessKey,
+      "bucket": fallbackS3Config.bucket,
+      "object-prefix": fallbackS3Config.objectPrefix,
+      "region": fallbackS3Config.region,
+      "secret-key": fallbackS3Config.secretKey,
+      "discard-after-timeout": false,
+    }
   }
 
   return config;

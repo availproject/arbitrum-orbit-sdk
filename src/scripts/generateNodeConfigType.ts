@@ -5,7 +5,7 @@ import { Project, WriterFunction, Writers } from 'ts-morph';
 const { objectType } = Writers;
 
 function getNitroNodeImageTag(): string {
-  const defaultNitroNodeTag = ':latest';
+  const defaultNitroNodeTag = ':v2.2.1-upstream-v3.2.1';
   const argv = process.argv.slice(2);
 
   if (argv.length < 2 || argv[0] !== '--nitro-node-tag') {
@@ -19,7 +19,7 @@ function getNitroNodeImageTag(): string {
 }
 
 const nitroNodeTag = getNitroNodeImageTag();
-const nitroNodeImage = `avail-nitro-node-dev${nitroNodeTag}`;
+const nitroNodeImage = `avail-nitro-node${nitroNodeTag}`;
 const nitroNodeHelpOutputFile = `${nitroNodeImage.replace('/', '-')}-help.txt`;
 
 console.log(`Using image "${nitroNodeImage}".`);

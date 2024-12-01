@@ -71,6 +71,8 @@ import { sequencerInboxActions } from './decorators/sequencerInboxActions';
 import { rollupAdminLogicPublicActions } from './decorators/rollupAdminLogicPublicActions';
 
 import { ChainConfig, ChainConfigArbitrumParams } from './types/ChainConfig';
+import { FallbackS3Config } from './types/FallbackS3Config';
+import { L3ChainConfig } from './types/L3ChainConfig';
 import { CoreContracts } from './types/CoreContracts';
 import { ParentChain, ParentChainId } from './types/ParentChain';
 import { NodeConfig } from './types/NodeConfig.generated';
@@ -201,6 +203,8 @@ export {
   //
   CoreContracts,
   ChainConfig,
+  FallbackS3Config,
+  L3ChainConfig,
   ChainConfigArbitrumParams,
   ParentChain,
   ParentChainId,

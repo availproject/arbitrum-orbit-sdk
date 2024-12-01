@@ -1,0 +1,19 @@
+{
+  "name": "create-avail-rollup-eth",
+  "version": "1.0.0",
+  "description": "Create Orbit chain with AvailDA",
+  "main": "index.ts",
+  "type": "module",
+  "scripts": {
+    "dev": "tsc --outDir dist && node ./dist/index.js"
+  },
+  "author": "Rishabh",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^20.9.0",
+    "typescript": "^5.2.2"
+  },
+  "dependencies": {
+    "@avail-project/avail-orbit-sdk": "^1.4.1-upstream-0.20.1"
+  }
+}

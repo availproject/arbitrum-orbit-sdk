@@ -64,7 +64,7 @@ const consensusReleases = [
   {
     // https://github.com/OffchainLabs/nitro/releases/tag/consensus-v32
     version: 32,
-    wasmModuleRoot: '0xa167084075dfed20b8ea617ba9e6b296d4045c167b3c97b459b3daef361eb4a5',
+    wasmModuleRoot: '0x9990d6e649a13f88c1eb1560f5c30e45dd7d46092188b947e1dfd8714bdad738',
     maxArbOSVersion: 32,
   },
 ] as const satisfies readonly ConsensusRelease[];
