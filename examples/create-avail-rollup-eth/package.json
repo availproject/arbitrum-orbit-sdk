@@ -15,6 +15,6 @@
     "typescript": "^5.2.2"
   },
   "dependencies": {
-    "@avail-project/avail-orbit-sdk": "^1.4.1-upstream-0.20.1"
+    "@avail-project/avail-orbit-sdk": "^1.5.1-upstream-0.20.1"
   }
 }

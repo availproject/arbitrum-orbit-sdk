@@ -45,8 +45,8 @@
   optionalDependencies:
     "@openzeppelin/upgrades-core" "^1.24.1"
 
-"@avail-project/avail-orbit-sdk@^1.4.0-upstream-0.20.1", "@avail-project/avail-orbit-sdk@file:/Users/rishabhagrawal/Data/Workspace/Avail/Exploration/Arbitrum/avail/arbitrum-orbit-sdk/src":
-  version "1.4.0-upstream-0.20.1"
+"@avail-project/avail-orbit-sdk@^1.5.1-upstream-0.20.1", "@avail-project/avail-orbit-sdk@file:/Users/rishabhagrawal/Data/Workspace/Avail/Exploration/Arbitrum/avail/arbitrum-orbit-sdk/src":
+  version "1.5.1-upstream-0.20.1"
   resolved "file:src"
   dependencies:
     "@arbitrum/sdk" "^4.0.0"
@@ -1181,6 +1181,12 @@ constant-case@^3.0.4:
     no-case "^3.0.4"
     tslib "^2.0.3"
     upper-case "^2.0.2"
+
+"create-avail-rollup-eth@file:/Users/rishabhagrawal/Data/Workspace/Avail/Exploration/Arbitrum/avail/arbitrum-orbit-sdk/examples/create-avail-rollup-eth":
+  version "1.0.0"
+  resolved "file:examples/create-avail-rollup-eth"
+  dependencies:
+    "@avail-project/avail-orbit-sdk" "^1.5.1-upstream-0.20.1"
 
 create-hash@^1.1.0, create-hash@^1.1.2, create-hash@^1.2.0:
   version "1.2.0"
@@ -2714,8 +2720,6 @@ postinstall-postinstall@^2.1.0:
 "prepare-node-config@file:/Users/rishabhagrawal/Data/Workspace/Avail/Exploration/Arbitrum/avail/arbitrum-orbit-sdk/examples/prepare-node-config":
   version "0.0.0"
   resolved "file:examples/prepare-node-config"
-  dependencies:
-    "@avail-project/avail-orbit-sdk" "^1.4.0-upstream-0.20.1"
 
 prettier@^2.8.1, prettier@^2.8.3:
   version "2.8.8"
